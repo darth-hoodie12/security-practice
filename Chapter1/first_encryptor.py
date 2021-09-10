@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Create on 07.09.2021
-@author Jamie Joly git @darth-hoodie12
+@author Jamie Joly
 @file first_encryptor.py
 @detail Decoding & Encoding using Le Grand Code
 화이트 해커를 위한 암호화 해킹 Chapter 1

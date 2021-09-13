@@ -4,8 +4,6 @@ Create on 11.09.2021
 @file caesar.py
 @detail Decoding & Encoding using Columnar Transposition Cipher
 화이트 해커를 위한 암호화 해킹 Chapter 1
-
-did not work
 """
 ENC = '0'
 DEC = '1'

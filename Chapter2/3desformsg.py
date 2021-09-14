@@ -7,8 +7,6 @@ Create on 13.09.2021
 @detail using 3DES library
 CBC mode
 화이트 해커를 위한 암호화 해킹 Chapter 2
-
-did not print...
 """
 
 # import 3DES module

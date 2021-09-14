@@ -44,31 +44,33 @@ class myDES():
         # encryption plaintext using 3DES
         # parameter
         # return
-        def enc(self, plaintext):
+    def enc(self, plaintext):
             # parameter (cipher key, operation mode, initialization vector)
-            des3 = DES3.new(self.key, DES3.MODE_CBC, self.iv)
+        des3 = DES3.new(self.key, DES3.MODE_CBC, self.iv)
             # encryption and return result to encmsg
-            encmsg = des3.encrypt(plaintext.encode())
-            return encmsg
+        encmsg = des3.encrypt(plaintext.encode())
+        return encmsg
 
         # don't using single object des3 for enc() and dec()
         # create different object each fuction
         # decryption ciphertext
-        def dec(self, ciphertext):
-            des3 = DES3.new(self.key, DES3.MODE_CBC, self.iv)
-            decmsg = des3.decrypt(ciphertext)
-            return decmsg
+    def dec(self, ciphertext):
+        des3 = DES3.new(self.key, DES3.MODE_CBC, self.iv)
+        decmsg = des3.decrypt(ciphertext)
+        return decmsg
 
-    def main():
-        keytext = 'samsjang'
-        ivtext = '1234'
-        msg = 'python3x'
+def main():
+    keytext = 'samsjang'
+    ivtext = '1234'
+    msg = 'python3x'
 
+    myCipher = myDES(keytext, ivtext)
+    ciphered = myCipher.enc(msg)
+    deciphered = myCipher.dec(ciphered)
 
-        myCipher = myDES(keytext, ivtext)
-        ciphered = myCipher.enc(msg)
-        deciphered = myCipher.dec(ciphered)
+    print('ORIGINAL:\t%s' %msg)
+    print('CIPHERED:\t%s' %ciphered)
+    print('DECIPHERED:\t%s' %deciphered)
 
-        print('ORIGINAL:\t%s' %msg)
-        print('CIPHERED:\t%s' %ciphered)
-        print('DECIPHERED:\t%s' %deciphered)
+if __name__ == '__main__':
+    main()

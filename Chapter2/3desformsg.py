@@ -42,7 +42,8 @@ class myDES():
         # encryption plaintext using 3DES
         # parameter
         # return
-    def enc(self, plaintext):
+    def enc(self, _plaintext):
+        plaintext = make8String(_plaintext)
             # parameter (cipher key, operation mode, initialization vector)
         des3 = DES3.new(self.key, DES3.MODE_CBC, self.iv)
             # encryption and return result to encmsg
@@ -57,10 +58,25 @@ class myDES():
         decmsg = des3.decrypt(ciphertext)
         return decmsg
 
+# make length of msg to multiple of eight byte by adding '0'
+# This function can't assure data integrity
+# But data integrity problem can be solved by using Hash
+def make8String(_msg):
+    msg = _msg
+
+    msgLen = len(msg)
+    filler = ''
+
+    if msgLen % 8 != 0:
+        filler = '0'*(8 - msgLen % 8)
+    msg += filler
+
+    return msg
+
 def main():
-    keytext = 'samsjang'
+    keytext = 'iamjamie'
     ivtext = '1234'
-    msg = 'python3x'
+    msg = 'python3x3'
 
     myCipher = myDES(keytext, ivtext)
     ciphered = myCipher.enc(msg)
